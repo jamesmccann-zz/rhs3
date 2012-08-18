@@ -1,0 +1,49 @@
+= form_for @reservation, :html => { :class => 'form-horizontal' } do |f|
+  = f.fields_for :guest do |g|
+    .control-group
+      = g.label :name, :class => 'control-label'
+      .controls
+        = g.text_field :name, :class => 'text_field'
+    .control-group
+      = g.label :addr1, :class => 'control-label'
+      .controls
+        = g.text_field :addr1, :class => 'text_field'
+    .control-group
+      = g.label :addr2, :class => 'control-label'
+      .controls
+        = g.text_field :addr2, :class => 'text_field'
+    .control-group
+      = g.label :addr3, :class => 'control-label'
+      .controls
+        = g.text_field :addr3, :class => 'text_field'
+    .control-group
+      = g.label :addr4, :class => 'control-label'
+      .controls
+        = g.text_field :addr4, :class => 'text_field'
+    .control-group
+      = g.label :phone, :class => 'control-label'
+      .controls
+        = g.text_field :phone, :class => 'text_field'
+    .control-group
+      = g.label :mobile, :class => 'control-label'
+      .controls
+        = g.text_field :mobile, :class => 'text_field'
+    .control-group
+      = g.label :email, :class => 'control-label'
+      .controls
+        = g.text_field :email, :class => 'text_field'
+  .control-group
+    = f.label :arrival_date, :class => 'control-label'
+    .controls
+      = f.date_select :arrival_date, :class => 'date_select'
+  .control-group
+    = f.label :departure_date, :class => 'control-label'
+    .controls
+      = f.date_select :departure_date, :class => 'date_select'
+  .control-group
+    = f.label :nights, :class => 'control-label'
+    .controls
+      = f.number_field :nights, :class => 'number_field'
+  .form-actions
+    = f.submit nil, :class => 'btn btn-primary'
+    = link_to t('.cancel', :default => t("helpers.links.cancel")), reservations_path, :class => 'btn'

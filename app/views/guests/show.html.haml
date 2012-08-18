@@ -1,0 +1,41 @@
+- model_class = Guest
+.page-header
+  %h1=t '.title', :default => model_class.model_name.human
+
+%p
+  %strong= model_class.human_attribute_name(:name) + ':'
+  %br
+  = @guest.name
+%p
+  %strong= model_class.human_attribute_name(:addr1) + ':'
+  %br
+  = @guest.addr1
+%p
+  %strong= model_class.human_attribute_name(:addr2) + ':'
+  %br
+  = @guest.addr2
+%p
+  %strong= model_class.human_attribute_name(:addr3) + ':'
+  %br
+  = @guest.addr3
+%p
+  %strong= model_class.human_attribute_name(:addr4) + ':'
+  %br
+  = @guest.addr4
+%p
+  %strong= model_class.human_attribute_name(:phone) + ':'
+  %br
+  = @guest.phone
+%p
+  %strong= model_class.human_attribute_name(:mobile) + ':'
+  %br
+  = @guest.mobile
+%p
+  %strong= model_class.human_attribute_name(:email) + ':'
+  %br
+  = @guest.email
+
+.form-actions
+  = link_to t('.back', :default => t("helpers.links.back")), guests_path, :class => 'btn'
+  = link_to t('.edit', :default => t("helpers.links.edit")), edit_guest_path(@guest), :class => 'btn'
+  = link_to t('.destroy', :default => t("helpers.links.destroy")), guest_path(@guest), :method => "delete", :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')), :class => 'btn btn-danger'

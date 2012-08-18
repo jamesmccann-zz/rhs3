@@ -1,0 +1,36 @@
+= form_for @guest, :html => { :class => 'form-horizontal' } do |f|
+  .control-group
+    = f.label :name, :class => 'control-label'
+    .controls
+      = f.text_field :name, :class => 'text_field'
+  .control-group
+    = f.label :addr1, :class => 'control-label'
+    .controls
+      = f.text_field :addr1, :class => 'text_field'
+  .control-group
+    = f.label :addr2, :class => 'control-label'
+    .controls
+      = f.text_field :addr2, :class => 'text_field'
+  .control-group
+    = f.label :addr3, :class => 'control-label'
+    .controls
+      = f.text_field :addr3, :class => 'text_field'
+  .control-group
+    = f.label :addr4, :class => 'control-label'
+    .controls
+      = f.text_field :addr4, :class => 'text_field'
+  .control-group
+    = f.label :phone, :class => 'control-label'
+    .controls
+      = f.text_field :phone, :class => 'text_field'
+  .control-group
+    = f.label :mobile, :class => 'control-label'
+    .controls
+      = f.text_field :mobile, :class => 'text_field'
+  .control-group
+    = f.label :email, :class => 'control-label'
+    .controls
+      = f.text_field :email, :class => 'text_field'
+  .form-actions
+    = f.submit nil, :class => 'btn btn-primary'
+    = link_to t('.cancel', :default => t("helpers.links.cancel")), guests_path, :class => 'btn'
