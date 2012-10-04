@@ -9,6 +9,6 @@
     - @reservations.each do |reservation|
       %tr
         %td= reservation.arrival_date
-        %td= reservation.guest.name
-        %td= reservation.allocation.room.num
+        %td= reservation.guest_name
+        %td= reservation.allocation.room_num if reservation.allocation.room.present?
         %td= reservation.nights
