@@ -1,5 +1,13 @@
 Rhs3::Application.routes.draw do
-  resources :reservations
+  resources :room_types
+
+  resources :rooms
+
+  resources :reservations do
+    get :expected_arrivals, :on => :collection
+  end
+
+  resources :guests
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
@@ -14,7 +22,6 @@ Rhs3::Application.routes.draw do
 
   # Sample resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products
-  resources :guests
 
   # Sample resource route with options:
   #   resources :products do

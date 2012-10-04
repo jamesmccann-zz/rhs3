@@ -1,0 +1,14 @@
+%table.table.table-striped
+  %thead
+    %tr
+      %th Arrival Date
+      %th Name
+      %th Room
+      %th Nights
+  %tbody
+    - @reservations.each do |reservation|
+      %tr
+        %td= reservation.arrival_date
+        %td= reservation.guest.name
+        %td= reservation.allocation.room.num
+        %td= reservation.nights

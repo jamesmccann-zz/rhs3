@@ -26,6 +26,8 @@ class ReservationsController < ApplicationController
   def new
     @reservation = Reservation.new
     @reservation.guest = Guest.new
+    @allocation = Allocation.new
+
 
     respond_to do |format|
       format.html # new.html.erb
@@ -36,18 +38,32 @@ class ReservationsController < ApplicationController
   # GET /reservations/1/edit
   def edit
     @reservation = Reservation.find(params[:id])
+    @allocation = Allocation.where("reservation_id = ?", @reservation.id).first
   end
 
   # POST /reservations
   # POST /reservations.json
   def create
     @reservation = Reservation.new(params[:reservation])
+    #NOTE - this is a hacky method jm 180812
+    room_alias = params[:allocation][:room]
+    room = Room.where("alias = ?", room_alias).first
+    room_typef = RoomType.find(params[:allocation][:room_type])
+    @allocation = Allocation.new
+    @allocation.room = room
+    @allocation.room_type = room_typef
 
     respond_to do |format|
       if @reservation.save
+        @allocation.reservation = @reservation
+        @allocation.save
         format.html { redirect_to @reservation, notice: 'Reservation was successfully created.' }
         format.json { render json: @reservation, status: :created, location: @reservation }
       else
+        puts('res errors')
+        @reservation.errors.each do |error|
+          puts(error.to_s)
+        end
         format.html { render action: "new" }
         format.json { render json: @reservation.errors, status: :unprocessable_entity }
       end
@@ -80,5 +96,9 @@ class ReservationsController < ApplicationController
       format.html { redirect_to reservations_url }
       format.json { head :no_content }
     end
+  end
+
+  def expected_arrivals
+    @reservations = Reservation.reservations_list_by_date(Time.now)
   end
 end

@@ -4,8 +4,10 @@ gem 'rails', '3.2.8'
 gem "twitter-bootstrap-rails"
 gem 'sqlite3'
 gem 'haml-rails'
-gem 'formtastic'
 gem 'jquery-rails'
+gem 'bootstrap-datepicker-rails'
+gem 'simple_form'
+gem 'client_side_validations'
 
 # Gems used only for assets and not required
 # in production environments by default.

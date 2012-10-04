@@ -1,0 +1,16 @@
+= form_for @room, :html => { :class => 'form-horizontal' } do |f|
+  .control-group
+    = f.label :alias, :class => 'control-label'
+    .controls
+      = f.text_field :alias, :class => 'text_field'
+  .control-group
+    = f.label :description, :class => 'control-label'
+    .controls
+      = f.text_field :description, :class => 'text_field'
+  .control-group
+    = f.label :room_type, :class => 'control-label'
+    .controls
+      = collection_select :room_type, :id, RoomType.all, :id, :name
+  .form-actions
+    = f.submit nil, :class => 'btn btn-primary'
+    = link_to t('.cancel', :default => t("helpers.links.cancel")), rooms_path, :class => 'btn'

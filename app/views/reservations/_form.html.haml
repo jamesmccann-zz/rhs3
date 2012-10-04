@@ -1,5 +1,5 @@
-= form_for @reservation, :html => { :class => 'form-horizontal' } do |f|
-  = f.fields_for :guest do |g|
+= simple_form_for @reservation, :validate => true, :html => { :class => 'form-horizontal' } do |f|
+  = f.simple_fields_for :guest do |g|
     .control-group
       = g.label :name, :class => 'control-label'
       .controls
@@ -32,14 +32,23 @@
       = g.label :email, :class => 'control-label'
       .controls
         = g.text_field :email, :class => 'text_field'
+  = simple_fields_for @allocation do |a|
+    .control-group
+      = a.label :room_type, :class => 'control-label'
+      .controls
+        = a.collection_select :room_type, RoomType.all, :id, :name
+    .control-group
+      = a.label :room, :class => 'control-label'
+      .controls
+        = a.text_field :room, :class => 'text_field', :value => @allocation.room.blank? ? '' : @allocation.room.alias
   .control-group
     = f.label :arrival_date, :class => 'control-label'
     .controls
-      = f.date_select :arrival_date, :class => 'date_select'
+      = f.text_field :arrival_date, :class => 'datepicker'
   .control-group
     = f.label :departure_date, :class => 'control-label'
     .controls
-      = f.date_select :departure_date, :class => 'date_select'
+      = f.text_field :departure_date, :class => 'datepicker'
   .control-group
     = f.label :nights, :class => 'control-label'
     .controls
