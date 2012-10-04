@@ -8,6 +8,7 @@ gem 'jquery-rails'
 gem 'bootstrap-datepicker-rails'
 gem 'simple_form'
 gem 'client_side_validations'
+gem 'spinjs-rails'
 
 # Gems used only for assets and not required
 # in production environments by default.

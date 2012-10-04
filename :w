@@ -1,4 +1,5 @@
-#reservations-list
+#reservation-list
+  .spinner
   %table.table.table-striped
     %thead
       %tr

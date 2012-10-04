@@ -15,4 +15,5 @@
 //= require twitter/bootstrap
 //= require bootstrap-datepicker
 //= require rails.validations
+//= require jquery.spin
 //= require_tree .
