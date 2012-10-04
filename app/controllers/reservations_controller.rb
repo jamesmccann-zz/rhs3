@@ -98,7 +98,9 @@ class ReservationsController < ApplicationController
     end
   end
 
-  def expected_arrivals
-    @reservations = Reservation.reservations_list_by_date(Time.now)
+  def arrivals 
+    params[:date]? date = params[:date] : date = Time.now
+    @reservations = Reservation.reservations_list_by_date(date)
   end
+
 end

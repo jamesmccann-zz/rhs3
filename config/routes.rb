@@ -4,7 +4,7 @@ Rhs3::Application.routes.draw do
   resources :rooms
 
   resources :reservations do
-    get :expected_arrivals, :on => :collection
+    get :arrivals, :on => :collection
   end
 
   resources :guests
