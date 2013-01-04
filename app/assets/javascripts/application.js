@@ -16,4 +16,5 @@
 //= require bootstrap-datepicker
 //= require rails.validations
 //= require jquery.spin
+//= require moment
 //= require_tree .

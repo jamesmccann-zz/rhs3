@@ -1,7 +1,9 @@
 .page-header
-  %h1 Expected Arrivals
+  %h1 Expected Arrivals for #{@date.to_date}
 .span3
   %h3 Expected Arrivals
-  %input#reservations-date-input.datepicker{:type => 'text', :placeholder => 'Select date'}  
+  = form_tag arrivals_reservations_path, method: 'get' do
+    = text_field_tag :date, @date, placeholder: 'Select date', class: 'datepicker'
+    = submit_tag 'Show Arrivals', name: nil
 .span9
   = render "res_list"

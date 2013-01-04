@@ -33,3 +33,7 @@ tmp
 .yardoc
 _yardoc
 doc/
+
+#misc
+.rvmrc
+.DS_Store

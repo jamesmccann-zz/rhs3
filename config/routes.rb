@@ -1,7 +1,11 @@
 Rhs3::Application.routes.draw do
   resources :room_types
-
   resources :rooms
+
+  resource :availability, :only => [:show], :controller => :availability do
+    get :types, :on => :collection, :as => :types
+    get :rooms, :on => :collection, :as => :rooms
+  end
 
   resources :reservations do
     get :arrivals, :on => :collection

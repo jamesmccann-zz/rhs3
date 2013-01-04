@@ -1,0 +1,17 @@
+<div class="page-header">
+  <h1><%= t '.title', :default => 'Availability' %>
+</div>
+
+<div id="availability">
+  <div class="controls pull-right clearfix">
+    <div class="date-select pull-right">
+      <%= link_to 'Prev Week', '#', :class => "prev-date-selector btn btn-small" %>
+      <%= link_to 'Next Week', '#', :class => "next-date-selector btn btn-small" %>
+    </div>
+  </div>
+  <div id="availability-loading" class="hidden"></div>
+  <div id="availability-table-cont">
+    <%= render :partial => 'types' %>
+  </div>
+</div>
+

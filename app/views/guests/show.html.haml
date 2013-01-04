@@ -15,11 +15,19 @@
   %br
   = @guest.addr2
 %p
-  %strong= model_class.human_attribute_name(:addr3) + ':'
+  %strong= model_class.human_attribute_name(:city) + ':'
   %br
   = @guest.addr3
 %p
-  %strong= model_class.human_attribute_name(:addr4) + ':'
+  %strong= model_class.human_attribute_name(:region) + ':'
+  %br
+  = @guest.addr4
+%p
+  %strong= model_class.human_attribute_name(:country) + ':'
+  %br
+  = @guest.addr4
+%p
+  %strong= model_class.human_attribute_name(:postcode) + ':'
   %br
   = @guest.addr4
 %p

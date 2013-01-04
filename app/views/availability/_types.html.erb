@@ -1,0 +1,25 @@
+<table id="availability-table" class="table table-striped" data-url="<%= types_availability_path %>" 
+  data-start="<%= @start_date.strftime("%Y-%m-%d") %>">
+  <thead>
+    <tr>
+      <th>Room Type</th>
+      <% (@start_date..@end_date).each do |date| %>
+        <th><%= date.strftime("%a %b %e") %></th>
+      <% end %>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% i = 0 %>
+    <% RoomType.all.each do |type| %>
+      <tr class="availability-types-row" data-url="<%= rooms_availability_path(:type => type.id) %>">
+        <td><%= type.name %></td>
+        <% (0..@availability[i].size-1).each do |j| %>
+          <td><%= @availability[i][j] %></td>
+        <% end %>
+        <% i+=1 %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+

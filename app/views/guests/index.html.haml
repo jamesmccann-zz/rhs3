@@ -8,8 +8,10 @@
       %th= model_class.human_attribute_name(:name)
       %th= model_class.human_attribute_name(:addr1)
       %th= model_class.human_attribute_name(:addr2)
-      %th= model_class.human_attribute_name(:addr3)
-      %th= model_class.human_attribute_name(:addr4)
+      %th= model_class.human_attribute_name(:city)
+      %th= model_class.human_attribute_name(:region)
+      %th= model_class.human_attribute_name(:country)
+      %th= model_class.human_attribute_name(:postcode)
       %th= model_class.human_attribute_name(:phone)
       %th= model_class.human_attribute_name(:mobile)
       %th= model_class.human_attribute_name(:email)
@@ -22,8 +24,10 @@
         %td= guest.name
         %td= guest.addr1
         %td= guest.addr2
-        %td= guest.addr3
-        %td= guest.addr4
+        %td= guest.city
+        %td= guest.region
+        %td= guest.country
+        %td= guest.postcode
         %td= guest.phone
         %td= guest.mobile
         %td= guest.email

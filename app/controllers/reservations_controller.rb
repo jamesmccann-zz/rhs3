@@ -99,8 +99,8 @@ class ReservationsController < ApplicationController
   end
 
   def arrivals 
-    params[:date]? date = params[:date] : date = Time.now
-    @reservations = Reservation.reservations_list_by_date(date)
+    params[:date]? @date = params[:date] : @date = Time.now
+    @reservations = Reservation.reservations_list_by_date(@date)
   end
 
 end

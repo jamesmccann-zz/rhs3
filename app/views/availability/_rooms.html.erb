@@ -1,0 +1,26 @@
+<table id="availability-table" class="table table-striped" 
+       data-url="<%= rooms_availability_path %>" 
+       data-start="<%= @start_date %>"
+       data-type="<%= @room_type %>">
+  <thead>
+    <tr>
+      <th>Room</th>
+      <% (@start_date..@end_date).each do |date| %>
+        <th><%= date.strftime("%a %b %e") %></th>
+      <% end %>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% i = 0 %>
+    <% @rooms.each do |room| %>
+      <tr id="room-<%=room.id%>">
+        <td><%= room.alias %></td>
+        <% (0..@availability[i].size-1).each do |j| %>
+          <td><%= @availability[i][j] %></td>
+        <% end %>
+        <% i += 1 %>
+      </tr> 
+    <% end %>
+  </tbody>
+</table>

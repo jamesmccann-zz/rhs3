@@ -27,8 +27,10 @@ ActiveRecord::Schema.define(:version => 20120903102551) do
     t.datetime "updated_at", :null => false
     t.string   "addr1"
     t.string   "addr2"
-    t.string   "addr3"
-    t.string   "addr4"
+    t.string   "city"
+    t.string   "country"
+    t.string   "region"
+    t.string   "postcode"
     t.string   "phone"
     t.string   "mobile"
     t.string   "email"
